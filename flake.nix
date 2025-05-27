@@ -14,11 +14,14 @@
         packages.dockerImage = pkgs.dockerTools.buildImage {
           name = "texlive-lualatex";
           tag = "latest";
-            contents = with pkgs; [
+          created = "now";
+          copyToRoot = pkgs.buildEnv {
+            name = "image-root";
+            paths = with pkgs; [
               git
-              latexmk
               texlive.combined.scheme-full
-          ];
+            ];
+          };
           config = {
             Cmd = [ "bash" ];
             WorkingDir = "/workspace";
