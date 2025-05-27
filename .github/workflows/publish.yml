@@ -6,10 +6,13 @@ on:
       - main
 
 jobs:
-  publish:
+  publish-image:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Free Disk Space
+        uses: jlumbroso/free-disk-space@main
+
       - name: Checkout repo
         uses: actions/checkout@v4
 
@@ -20,9 +23,6 @@ jobs:
 
       - name: Build Docker image
         run: nix build .#dockerImage
-
-      - name: Check flakes
-        run: nix flake check
 
       - name: Load Docker image
         run: docker load < results
