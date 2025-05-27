@@ -1,5 +1,5 @@
 {
-  description = "LaTeX Docker image with luatatex, latexmk, and git";
+  description = "LaTeX Docker image with texlive and git";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.05";
@@ -12,7 +12,7 @@
         pkgs = import nixpkgs { inherit system; };
       in {
         packages.dockerImage = pkgs.dockerTools.buildImage {
-          name = "texlive-lualatex";
+          name = "texlive";
           tag = "latest";
           created = "now";
           copyToRoot = pkgs.buildEnv {
