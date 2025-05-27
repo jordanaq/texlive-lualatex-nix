@@ -18,6 +18,14 @@
           copyToRoot = pkgs.buildEnv {
             name = "image-root";
             paths = with pkgs; [
+              bash
+              busybox
+              cmake
+              coreutils
+              curl
+              findutils
+              gawk
+              gcc
               git
               texlive.combined.scheme-full
             ];
