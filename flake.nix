@@ -27,7 +27,8 @@
               gawk
               gcc
               git
-              texlive.combined.scheme-full
+              nodejs
+              texlive.combined.scheme-medium
             ];
           };
           config = {
