@@ -25,7 +25,7 @@ jobs:
         run: nix build .#dockerImage
 
       - name: Load Docker image
-        run: docker load < results
+        run: docker load < result
 
       - name: Authenticate with GitHub Container Registry
         uses: docker/login-action@v3
