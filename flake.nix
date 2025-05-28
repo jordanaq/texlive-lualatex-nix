@@ -27,10 +27,15 @@
               gawk
               gcc
               git
-              nodejs
+              glibc
+              nodejs_20
               texlive.combined.scheme-medium
             ];
           };
+          runAsRoot = ''
+            mkdir -p /__e/node20/bin
+            ln -s ${pkgs.nodejs}/bin/node /__e/node20/bin/node
+          '';
           config = {
             Cmd = [ "bash" ];
             WorkingDir = "/workspace";
