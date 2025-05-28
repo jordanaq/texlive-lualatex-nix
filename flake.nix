@@ -20,6 +20,7 @@
             paths = with pkgs; [
               bash
               busybox
+              cacert
               cmake
               coreutils
               curl
@@ -29,12 +30,16 @@
               git
               glibc
               nodejs_20
+              openssl
               texlive.combined.scheme-medium
             ];
           };
           config = {
             Cmd = [ "bash" ];
             WorkingDir = "/workspace";
+            Env = [
+              "SSL_CERT_FILE=${pkgs.cacert}/etc/ssl/certs/ca-bundle.crt"
+            ];
           };
         };
       });
